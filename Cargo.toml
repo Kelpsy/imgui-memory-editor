@@ -1,0 +1,9 @@
+[package]
+name = "imgui-memory-editor"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+imgui = { git = "https://github.com/imgui-rs/imgui-rs" }
+bitflags = "1.3"
