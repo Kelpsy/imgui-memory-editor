@@ -1074,7 +1074,7 @@ impl MemoryEditor {
                                         break;
                                     }
                                     if let Some(byte) = read(cb_data, addr) {
-                                        value |= (byte as u128) << (($bytes << 3) - (i << 3));
+                                        value |= (byte as u128) << (($bytes - 1 - i) << 3);
                                     } else {
                                         valid = false;
                                         break;
