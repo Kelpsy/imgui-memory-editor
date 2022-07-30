@@ -4,7 +4,7 @@ mod scrollbar;
 mod y_pos;
 
 use core::{fmt::Write, iter::once, mem::size_of, num::NonZeroU8};
-use imgui::{Drag, Key, MouseButton, StyleColor, StyleVar, Ui, WindowFocusedFlags};
+use imgui::{Drag, Key, MouseButton, StyleColor, StyleVar, Ui, WindowHoveredFlags};
 use scrollbar::Scrollbar;
 use y_pos::{SignedYPos, YPos, YPosRaw};
 
@@ -539,7 +539,7 @@ impl MemoryEditor {
     #[inline]
     pub fn handle_options_right_click(&mut self, ui: &Ui) {
         if self.flags.contains(Flags::SHOW_VIEW_OPTIONS)
-            && ui.is_window_focused_with_flags(WindowFocusedFlags::ROOT_AND_CHILD_WINDOWS)
+            && ui.is_window_hovered_with_flags(WindowHoveredFlags::ROOT_AND_CHILD_WINDOWS)
             && ui.is_mouse_clicked(MouseButton::Right)
         {
             ui.open_popup("options");
